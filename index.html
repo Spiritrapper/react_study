@@ -13,31 +13,27 @@
     const root = document.getElementById("root");
     // function Title () {return (..)}  ==  =()=> (..) 두가지 방법이 같다
     // react 컴포넌트이름은 대문자로 시작해야한다. 아니면 일반 html태그로 인식
-    function Title() {
+
+    //const container = React.createElement("div", null, [Title, Button])
+    let counter =0;
+    function countUp() {
+        counter = counter +1;
+        render();
+    }
+    function render() {
+        ReactDOM.render(<Container />, root)
+    }
+    function Container() { 
         return (
-        <h3 id="title"  onMouseEnter= {() => console.log('mouse enter')}>
-        Hello I'm a title
-    </h3>
-    );} 
-    const Button = () => (
-        <button 
-            style= {{
-                backgroundColor:"tomato",
-            }}
-            onClick={() => console.log("im clicked")}
-        >
+        <div>
+            <h3 >
+                Total clicks: {counter}
+            </h3>
+            <button onClick={countUp}>
             click me
         </button>
-    ) ;
-    //const container = React.createElement("div", null, [Title, Button])
-    const Container = () => (
-        <div>
-            <button>hello</button>
-            <Title />
-            <Button />
-            
     </div>
-    );
-    ReactDOM.render(<Container />, root)
+    );}
+    render();
 </script>
 </html>
