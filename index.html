@@ -14,26 +14,24 @@
     // function Title () {return (..)}  ==  =()=> (..) 두가지 방법이 같다
     // react 컴포넌트이름은 대문자로 시작해야한다. 아니면 일반 html태그로 인식
 
-    //const container = React.createElement("div", null, [Title, Button])
-    let counter =0;
-    function countUp() {
-        counter = counter +1;
-        render();
-    }
-    function render() {
-        ReactDOM.render(<Container />, root)
-    }
-    function Container() { 
+    //const container = React.createElement("div", null, [Title, Button]
+    function App() { 
+        // 왜 setCounter 필요한가? = function counter=data setCounter =function
+        const [counter, setCounter]= React.useState(0);  //초기값 0 setCounter사용하여 함수 만들기
+        const onClick = () => {
+            setCounter(counter +1);
+        }
         return (
         <div>
             <h3 >
                 Total clicks: {counter}
             </h3>
-            <button onClick={countUp}>
+            <button onClick={onClick} >
             click me
         </button>
-    </div>
-    );}
-    render();
+        </div>
+        );
+    }
+    ReactDOM.render(<App />, root)
 </script>
 </html>
