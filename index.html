@@ -16,12 +16,15 @@
 
     //const container = React.createElement("div", null, [Title, Button]
     function App() { 
-        // 왜 setCounter 필요한가? = function counter=data setCounter =function
+        // 왜 setCounter(modifier) 필요한가? = function counter=data setCounter =function
         const [counter, setCounter]= React.useState(0);  //초기값 0 setCounter사용하여 함수 만들기
         const onClick = () => {
-            setCounter(counter +1);
+           // setCounter(counter +1);
+           setCounter((current) => current+1)
+           //setCounter((current) => counter+1)
         }
         // setCounter 리액트 컴포넌트에 의해 새롭게 계속 렌더링 된다.
+        // state가 바뀌면, React가 컴포넌트를 refresh새로운값을 가지고 컴포넌트가 리렌더링
         console.log("rendered");
         console.log(counter);
         return (
