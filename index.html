@@ -21,6 +21,9 @@
         const onClick = () => {
             setCounter(counter +1);
         }
+        // setCounter 리액트 컴포넌트에 의해 새롭게 계속 렌더링 된다.
+        console.log("rendered");
+        console.log(counter);
         return (
         <div>
             <h3 >
