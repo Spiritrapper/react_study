@@ -9,10 +9,10 @@
 </script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
+<script type="text/babel"
     function App() {
         const [amount, setAmount] = React.useState(0);
-        const [flipped, setFlipped] = React.useState(false);
+        const [inverted, setInverted] = React.useState(false);
         const onChange = (event) => {
             // event.target으로 html요소에대해 접근가능 (input 요소에대한 정보 콘솔출력)
             // 함수를 통해 html요소중 value값에 접근
@@ -22,7 +22,7 @@
         //const onFlip = () => setFlipped(!flipped);
         const onFlip = () => {
             reset();
-            setFlipped((current) => !current);
+            setInverted((current) => !current);
         }
         return (
             <div>
@@ -32,13 +32,13 @@
                 {/* for를 label사용하면 마우스클릭시 자동으로 input에 입력커서 연결 htmlFor사용 */}
                 <div><label htmlFor="minutes">Munutes</label>
                 {/*삼항 연산자 flipped이 diable상태에서 value값 amount가 입력되면 *60한 값이 출력되도록*/}    
-                <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped}/>
+                <input value={inverted ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted}/>
             </div>
              <div>  <label htmlFor="hours" >Hours</label>
                 {/*삼항 연산자 !flipped이 입력가능상태에서 value값 amount가 입력되면 그대로 입력되도록 */}  
-                <input value={flipped ? amount: Math.round(amount/ 60) } id="hours" placeholder="Hours" type="number" disabled={!flipped} onChange={onChange}/></div>
+                <input value={inverted ? amount: Math.round(amount/ 60) } id="hours" placeholder="Hours" type="number" disabled={!inverted} onChange={onChange}/></div>
                 <button onClick={reset}>Reset</button> 
-                <button onClick={onFlip}>Flip</button> 
+                <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button> 
             </div>
         );
     }
@@ -46,4 +46,4 @@
     ReactDOM.render(<App />, root)
 </script>
 
-</html>
+</html>I
