@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <body>
     <div id="root"></div>
 </body>
@@ -9,35 +10,27 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-
-    const root = document.getElementById("root");
-    // function Title () {return (..)}  ==  =()=> (..) 두가지 방법이 같다
-    // react 컴포넌트이름은 대문자로 시작해야한다. 아니면 일반 html태그로 인식
-
-    //const container = React.createElement("div", null, [Title, Button]
-    function App() { 
-        // 왜 setCounter(modifier) 필요한가? = function counter=data setCounter =function
-        const [counter, setCounter]= React.useState(0);  //초기값 0 setCounter사용하여 함수 만들기
-        const onClick = () => {
-           // setCounter(counter +1);
-           setCounter((current) => current+1)
-           //setCounter((current) => counter+1)
+    function App() {
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            // event.target으로 html요소에대해 접근가능 (input 요소에대한 정보 콘솔출력)
+            console.log(event.target);
         }
-        // setCounter 리액트 컴포넌트에 의해 새롭게 계속 렌더링 된다.
-        // state가 바뀌면, React가 컴포넌트를 refresh새로운값을 가지고 컴포넌트가 리렌더링
-        console.log("rendered");
-        console.log(counter);
         return (
-        <div>
-            <h3 >
-                Total clicks: {counter}
-            </h3>
-            <button onClick={onClick} >
-            click me
-        </button>
-        </div>
+            <div>
+                <h1 className="hi">
+                    Super Converter
+                </h1>
+                {/* for를 label사용하면 마우스클릭시 자동으로 input에 입력커서 연결 htmlFor사용 */}
+                <label htmlFor="minutes">Munutes</label>
+                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
+                <label htmlFor="hours" >Hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
+            </div>
         );
     }
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root)
 </script>
+
 </html>
