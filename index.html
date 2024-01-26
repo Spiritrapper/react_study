@@ -13,7 +13,8 @@
 <script type="text/babel">
     // probs는 요소의 인자를 매개변수로
     //function Btn(props) {
-    function Btn({ text, fontSize = 12  }) {
+    // ({..}) == (props)
+    function Btn(props) {
         return (
        
         <button
@@ -24,11 +25,12 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize,
+            // props.fontSSS == <Btn text="Save Change" frontSSS={18} />
+            fontSize:props.fontSize111,
         }}
         >
-        {/*{probs.text}*/}
-        {text}
+        {/*{props.text}*/}
+        {props.text}
     </button>
 
         );
@@ -42,7 +44,7 @@
 
         return (
             <div>
-                <Btn text="Save Change" fontSize={18} />
+                <Btn text="Save Change" fontSize111={18} />
                 <Btn  text={"Continue"} />
 
             </div>
