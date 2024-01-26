@@ -5,26 +5,26 @@
     <div id="root"></div>
 </body>
 
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js">
 </script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script type="text/babel">
     // probs는 요소의 인자를 매개변수로
     //function Btn(props) {
-    function Btn({ text, onClick  }) {
-        console.log(text, "was rendered")
+    function Btn({ text, fontSize = 12  }) {
         return (
        
         <button
-        onClick = {onClick}
+      
         style={{
             backgroundColor:"tomato",
             color:"white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: 16,
+            fontSize,
         }}
         >
         {/*{probs.text}*/}
@@ -33,20 +33,18 @@
 
         );
     }
-    function ConfirmBtn() {
-        return <button>
-            Confirm</button>
+
+    Btn.propTypes = {
+        text: PropTypes.string.isRequired,
+        fontSize :PropTypes.number,
     }
-    const MemorizedBtn = React.memo(Btn);
     function App() {
-        const [value, setValue]  = React.useState("Save Change");
-        const changeValue = () => setValue("Revert Changes");
+
         return (
             <div>
-                {/*onClick(changeValue) function함수에 넣은게(btn 컴포넌트내에 클릭이벤트로 처리) 아니라 props으로 전달 좀더 유연하게 사용자정의*/}
-                <MemorizedBtn text = {value} onClick={changeValue}/>
-                {/*위에서 실행되고 밑에 Btn은 렌더링 안되게 하려면*/}
-                <MemorizedBtn text = "Continue" />
+                <Btn text="Save Change" fontSize={18} />
+                <Btn  text={"Continue"} />
+
             </div>
         );   
     }
