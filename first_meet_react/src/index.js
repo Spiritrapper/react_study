@@ -17,13 +17,16 @@ import MainPage from './chapter_09/MainPage';
 import LandingPage from './chapter_09/LandingPage';
 import AttendenceBook from './chapter_10/AttendenceBook';
 import SignUp from './chapter_11/SignUp';
-
+import Calculator from './chapter_12/Calculator';
+import ProfileCard from './chapter_13/ProfileCard';
+import DarkOrLight from './chapter_14/DarkOrLight';
+import MainPage1 from './chapter_15/MainPage';
 
 ReactDOM.render(
   <React.StrictMode>
  
-    <SignUp/>
-    <MainPage/>   
+    <MainPage1/>
+  
 
   </React.StrictMode>,
   document.getElementById('root')
