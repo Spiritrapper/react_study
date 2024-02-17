@@ -16,13 +16,11 @@ import ConfirmButton from './chapter_08/ConfirmButton_functionComponent';
 import MainPage from './chapter_09/MainPage';
 import LandingPage from './chapter_09/LandingPage';
 import AttendenceBook from './chapter_10/AttendenceBook';
-import SignUp from './chapter_11/SignUp';
-
 
 ReactDOM.render(
   <React.StrictMode>
  
-    <SignUp/>
+    <AttendenceBook/>
     <MainPage/>   
 
   </React.StrictMode>,
