@@ -7,17 +7,15 @@ import reportWebVitals from './reportWebVitals';
 import Library from './chapter_03/Library';
 import Clock from './chapter_04/Clock';
 import Welcome from './chapter_05/a';
-import Comment from './chapter_05/Comment';
-import CommentList from './chapter_05/CommentList';
-import Notification from './chapter_06/Notification';
-import NotificationList from './chapter_06/NotificationList';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
- 
-
-    <NotificationList/>   
+  {/*<Library />*/}   
+    <Clock/>
+    <Welcome name="인재"/>
+    <Welcome name="ㄹㄹ"/>
 
   </React.StrictMode>,
   document.getElementById('root')

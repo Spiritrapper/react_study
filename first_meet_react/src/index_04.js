@@ -6,23 +6,24 @@ import reportWebVitals from './reportWebVitals';
 
 import Library from './chapter_03/Library';
 import Clock from './chapter_04/Clock';
-import Welcome from './chapter_05/a';
-import Comment from './chapter_05/Comment';
-import CommentList from './chapter_05/CommentList';
-import Notification from './chapter_06/Notification';
-import NotificationList from './chapter_06/NotificationList';
 
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+//root.render(
+//  <React.StrictMode>
+//    {/*<Library />*/}
+//    <Clock/>
+//  </React.StrictMode>
+//);
 
-ReactDOM.render(
-  <React.StrictMode>
- 
-
-    <NotificationList/>   
-
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
+setInterval(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+     {/*<Library />*/}   
+      <Clock/>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}, 1000)
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
