@@ -10,6 +10,7 @@ function Dialog(props) {
             <p className="Dialog-message">
                 {props.message}
             </p>
+            {props.children}
         </FancyBorder> 
     )
 }
